@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary'
+    'gallery.apps.GalleryConfig',
+    'cloudinary',
 ]
 
 cloudinary.config(
