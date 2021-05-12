@@ -1,5 +1,8 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+import datetime as dt
+
+from django.db.models.fields import DateField
 
 # Create your models here.
 class Category(models.Model):
@@ -18,6 +21,7 @@ class Images(models.Model):
   name=models.CharField(max_length=50)
   image=CloudinaryField('photo')
   description=models.CharField(max_length=100)
+  date=models.DateField(auto_now_add=True)
   location=models.ForeignKey(Location,on_delete=models.CASCADE)
   category=models.ForeignKey(Category,on_delete=models.CASCADE)
 
@@ -41,4 +45,18 @@ class Images(models.Model):
 
   @classmethod
   def search_image(cls,category):
-    
+    image=cls.objects.filter(category__icontains=category)
+    return image
+  
+  @classmethod
+  def get_images(cls):
+    return cls.objects.all()
+
+  @classmethod
+  def filter_by_location(cls,location):
+    located=Location.objects.get(name=location)
+    image=Images.objects.filter(location=located.id)
+    return image
+
+  class Meta:
+    ordering = ['date']
