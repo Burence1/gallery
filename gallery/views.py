@@ -51,3 +51,17 @@ def single_image(request,image_id):
   except ObjectDoesNotExist:
     message="image does not exist"
     return (request,'image.html',{"message":message})
+
+def location(request,location_id):
+  try:
+    location=Location.objects.get(id=location_id)
+    images=Images.filter_by_location(location)
+    message=location.name
+    title=location.name
+    return render(request,"search.html",{"images":images,"message":message,"title":title})
+  
+  except ObjectDoesNotExist:
+    message="no image(s) in this location"
+    location=Location.objects.all()
+    title="No images"
+    return render(request,"search.html",{"message":message,"location":location,"title":title})
