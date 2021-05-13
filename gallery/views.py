@@ -29,3 +29,16 @@ def search_images(request):
   else:
     message="Search for categories"
     return render(request,"search.html",{"message":message})
+
+def category(request,category_id):
+  try:
+    category =Category.objects.get(category_id=category_id)
+    images=Images.save_image(category)
+    message=category.name
+    title=category.name
+    return render(request,'search.html',{"images":images,"message":message,"title":title})
+
+  except ObjectDoesNotExist:
+    message="This category has no images"
+    categories=Category.objects.all()
+    return render(request,'search.html',{"message":message,"categories":categories})
