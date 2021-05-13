@@ -18,7 +18,7 @@ def search_images(request):
     try:
       category=Category.objects.get(name=search_term)
       image=Images.search_image(category)
-      message=f"found {{images|length}}"
+      message=f"found {len(image)}"
       return render(request,'search.html',{"message":message,"image":image})
     
     except ObjectDoesNotExist:

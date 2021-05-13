@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+{% if image %}
+<h3>{{message}}</h3>
+{% for image in image %}
+<div class="row">
+  <div class="card" id="img" style="width: 25em;">
+    <div class="image">
+      <img src="{{image.image.url}}" class="img-responsive" alt="Image" id="img">
+    </div>
+    <p>{{image.description}}</p>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+{% endblock %}
