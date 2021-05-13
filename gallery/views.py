@@ -10,3 +10,6 @@ def index(request):
   category= Category.objects.all()
 
   return render(request, 'index.html',{"images":images,"location":location,"category":category})
+
+def search_images(request):
+  
