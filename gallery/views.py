@@ -33,10 +33,10 @@ def search_images(request):
 def category(request,category_id):
   try:
     category =Category.objects.get(id=category_id)
-    images=Images.save_image(category)
+    image=Images.search_image(category)
     message=category.name
     title=category.name
-    return render(request,'search.html',{"images":images,"message":message,"title":title})
+    return render(request,'search.html',{"image":image,"message":message,"title":title})
 
   except ObjectDoesNotExist:
     message="This category has no images"
@@ -55,10 +55,10 @@ def single_image(request,image_id):
 def location(request,location_id):
   try:
     location=Location.objects.get(id=location_id)
-    images=Images.filter_by_location(location)
+    image=Images.filter_by_location(location)
     message=location.name
     title=location.name
-    return render(request,"search.html",{"images":images,"message":message,"title":title})
+    return render(request,"search.html",{"image":image,"message":message,"title":title})
   
   except ObjectDoesNotExist:
     message="no image(s) in this location"

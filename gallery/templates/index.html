@@ -13,4 +13,24 @@
   </div>
   {% endfor %}
 </div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-5 col-sm-6">
+    {% if location %}
+    <h3>Locations</h3>
+    {% for location in location %}
+    <a href="/location/{{location.id}}">{{location.name}}</a>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="col-md-5 col-sm-6">
+    {% if category %}
+    <h3>Categories</h3>
+    {% for category in category %}
+    <a href="/category/{{category.id}}">{{category.name}}</a>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="col-md-1"></div>
+</div>
 {% endblock %}
