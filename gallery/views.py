@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.http import HttpResponse,Http404
 from .models import Location,Category,Images
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def index(request):
-  images = Images.get_images()
+  images = Images.objects.all()
   location = Location.objects.all()
   category= Category.objects.all()
 

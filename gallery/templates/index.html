@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ block.super }}
+<div class="container">
+  <p>home</p>
+  {% for image in images %}
+  <div class="row">
+    <div class="card" id="img" style="width: 25em;">
+      <div class="image">
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image" id="img">
+      </div>
+      <p>{{image.description}}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
