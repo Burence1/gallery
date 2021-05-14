@@ -1,6 +1,8 @@
+{% load static %}
 <div class="navbar">
   <nav>
     <div class="nav">
+      <img src="{% static 'images/' %}" alt="logo" style="width:32px; padding-bottom: 0 !important;">
       <a href="{% url 'home' %}" class="nav-item is-active" active-color="maroon" id="brand">Gallerie De Arte</a>
       <a href="/admin" class="nav-item"><img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt=""
         loading="lazy" /><br>Admin</a>
