@@ -8,7 +8,7 @@
     <div>
       <div>
         <div class="image"><a href="/image/{{image.id}}">
-          <img src="{{image.image.url}}" class="img-responsive" alt="Image" id="img"></a>
+          <img src="{{image.image.url}}" class="img-thumbnail" alt="Image" id="img"></a>
         </div>
       </div>
     </div>
@@ -17,23 +17,19 @@
 </div>
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-5 col-sm-6">
-    {% if location %}
-    <h3>Locations</h3>
-    {% for location in location %}
-    <a href="/location/{{location.id}}">{{location.name}}</a>
-    <!-- <form method="GET">
-      <a href="/location/{{location.id}}">{{ location }}</a>
-      <input type="submit" value="Submit">
-    </form> -->
+  <div class="col-md-5">
+    {% if category %}
+    <h3 style="text-align: center;">Categories</h3>
+    {% for category in category %}
+    <a href="/category/{{category.id}}">{{category.name}}</a>
     {% endfor %}
     {% endif %}
   </div>
-  <div class="col-md-5 col-sm-6">
-    {% if category %}
-    <h3>Categories</h3>
-    {% for category in category %}
-    <a href="/category/{{category.id}}">{{category.name}}</a>
+  <div class="col-md-5">
+    {% if location %}
+    <h3 style="text-align: center;">Locations</h3>
+    {% for location in location %}
+        <a href="/location/{{location.id}}">{{location.name}}</a>
     {% endfor %}
     {% endif %}
   </div>

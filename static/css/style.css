@@ -73,20 +73,12 @@ nav {
     color: #333;
 }
 
-.nav-indicator {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    transition: .4s;
-    height: 5px;
-    z-index: 1;
-    border-radius: 8px 8px 0 0;
+.is-active:hover {
+    color: maroon;
 }
 
 .navbar-right {
     margin-right: 0%!important;
-    padding-right: 0% !important;
 }
 
 #images {
@@ -105,9 +97,29 @@ nav {
     align-self: start;
 } */
 
+.location{
+    display: grid;
+}
+
 #img {
     width: 100%;
     padding-bottom: 0% !important;
     height: 100%;
     margin: 0% !important;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        height: 7rem !important;
+    }
+
+    #brand {
+        font-size: 4rem;
+    }
 }

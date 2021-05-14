@@ -1,19 +1,16 @@
 {% load static %}
 <div class="navbar">
-  <nav>
+  <nav style="width: 100%;">
     <div class="nav">
-      <img src="{% static 'images/' %}" alt="logo" style="width:32px; padding-bottom: 0 !important;">
       <a href="{% url 'home' %}" class="nav-item is-active" active-color="maroon" id="brand">Gallerie De Arte</a>
-      <a href="/admin" class="nav-item"><img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt=""
-        loading="lazy" /><br>Admin</a>
-      <span class="nav-indicator"></span>
+      <a href="/admin" class="nav-item"><br>Admin</a>
     </div>
-    <div class="navbar-right" style="margin-right: 0%;">
+    <div class="navbar-right" style="margin-top: auto;margin-bottom: auto;">
       <form class="navbar-form" role="search" action="{% url 'search_results' %}">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search By Category" name="category">
           <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            <button class="btn btn-default" type="submit"><i class="bi bi-search"></i></button>
           </div>
         </div>
       </form>
