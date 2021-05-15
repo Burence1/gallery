@@ -24,7 +24,7 @@
   {% block content %}
   <div class="row" style="margin-top: 4em;">
     <div class="col-md-1"></div>
-    <div class="col-md-3">
+    <div class="col-md-5">
       {% if category %}
       <h3 style="text-align: center;">Categories</h3>
       {% for category in category %}
@@ -32,10 +32,7 @@
       {% endfor %}
       {% endif %}
     </div>
-    <div class="col-md-4" id="logo">
-      <img src="{% static 'images/logo.png' %}" alt="logo" style="width:8em; padding-bottom: 0 !important;">
-    </div>
-    <div class="col-md-3">
+    <div class="col-md-5">
       {% if location %}
       <h3 style="text-align: center;">Locations</h3>
       {% for location in location %}
