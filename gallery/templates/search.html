@@ -1,19 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container">
+
 {% if image %}
-<h3>{{message}}</h3>
-{% for image in image %}
-<div class="row">
-  <div class="card" id="img" style="width: 25em;">
-    <div class="image">
-      <img src="{{image.image.url}}" class="img-responsive" alt="Image" id="img">
+<h3 style="text-align: center; text-transform: capitalize;">{{message}}</h3>
+<div class="container">
+  <div class="content" id="content">
+    <div>
+      {% for image in first %}
+      <a href="/image/{{image.id}}">
+        <img src="{{image.image.url}}" class="image img-thumbnail" alt="Image"></a>
+      {% endfor %}
     </div>
-    <p>{{image.description}}</p>
+    <div>
+      {% for image in second %}
+      <a href="/image/{{image.id}}">
+        <img src="{{image.image.url}}" class="image img-thumbnail" alt="Image"></a>
+      {% endfor %}
+    </div>
+    <div>
+      {% for image in third %}
+      <a href="/image/{{image.id}}">
+        <img src="{{image.image.url}}" class="image img-thumbnail" alt="Image"></a>
+      {% endfor %}
+    </div>
   </div>
 </div>
-{% endfor %}
 {% endif %}
-</div>
 {% endblock %}

@@ -1,8 +1,9 @@
 {% load static %}
-<div class="navbar">
+<!-- <div class="navbar">
   <nav style="width: 100%;">
     <div class="nav">
-      <a href="{% url 'home' %}" class="nav-item is-active" active-color="maroon" id="brand">Gallerie De Arte</a>
+       <a href="{% url 'home' %}" class="nav-item is-active" active-color="maroon" id="brand">Gallerie De Arte</a>
+      <img src="{% static 'images/logo.png' %}" alt="logo" style="width:5em; padding-bottom: 0 !important;">
       <a href="/admin" class="nav-item"><br>Admin</a>
     </div>
     <div class="navbar-right" style="margin-top: auto;margin-bottom: auto;">
@@ -16,4 +17,27 @@
       </form>
     </div>
   </nav>
-</div>
+</div> -->
+
+<nav class="py-2 bg-light border-bottom" style="width: 100%;">
+  <div class="container d-flex flex-wrap">
+    <ul class="nav me-auto">
+      <div class="col-md-4" id="logo">
+      <img src="{% static 'images/logo.png' %}" alt="logo" style="width:8em; padding-bottom: 0 !important;">
+    </div>
+      <!-- <a href="{% url 'home' %}" class="nav-item is-active" active-color="maroon" id="brand">Gallerie De Arte</a> -->
+      <!-- <img src="{% static 'images/logo.png' %}" alt="logo" style="width:5em;"> -->
+    </ul>
+    <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search By Category" name="category">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="bi bi-search"></i></button>
+        </div>
+      </div>
+    </form>
+    <ul class="nav">
+      <a href="/admin" class="nav-item"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" style="margin-right: 0% !important;" class="rounded-circle"><br>Admin</a>
+    </ul>
+  </div>
+</nav>

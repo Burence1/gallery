@@ -15,15 +15,40 @@
   {% block styles %}
   {% bootstrap_css %}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   {% endblock %}
 </head>
 <body>
   {% include 'navbar.html' %}
   {% block content %}
+  <div class="row" style="margin-top: 4em;">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      {% if category %}
+      <h3 style="text-align: center;">Categories</h3>
+      {% for category in category %}
+      <a href="/category/{{category.id}}"><span class="badge rounded-pill bg-secondary">{{category.name}}</span></a>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="col-md-4" id="logo">
+      <img src="{% static 'images/logo.png' %}" alt="logo" style="width:8em; padding-bottom: 0 !important;">
+    </div>
+    <div class="col-md-3">
+      {% if location %}
+      <h3 style="text-align: center;">Locations</h3>
+      {% for location in location %}
+      <a href="/location/{{location.id}}"><span class="badge rounded-pill bg-secondary">{{location.name}}</span></a>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="col-md-1"></div>
+  </div>
   {% endblock %}
   {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
   {% bootstrap_javascript %}
   {% endblock %}
 </body>

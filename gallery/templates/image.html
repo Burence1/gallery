@@ -6,22 +6,25 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 text-center">
       {% if image %}
-      <h3>{{image.name}}</h3>
+      <h3 style="text-transform: uppercase;">{{image.name}}</h3>
       <div class="card shadow p-3 mb-5 rounded card">
         <div class="cardbody">
           <img class="image img-thumbnail" src="{{image.image.url}}">
         </div>
-        <div class="card-footer">
+        <div class="card-footer" style="background: transparent;">
           <div class="row">
             <div class="col-md-4">
-              <p><strong>{{image.category.name}}</strong></p>
+              <p style="color: maroon;"><strong>{{image.category.name}}</strong></p>
             </div>
             <div class="col-md-4">
-              {{image.location.name}}
+              <p style="color: maroon;"><strong><i class="fa fa-location-arrow" aria-hidden="true"></i>{{image.location.name}}</strong></p>
             </div>
             <div class="col-md-4">
               <i class="fa fa-clipboard" aria-hidden="true"></i>
             </div>
+          </div>
+          <div class="desc">
+            <h2 style="font-family: Chewy,cursive; text-transform: capitalize;"><strong>{{image.description}}</strong></h2>
           </div>
         </div>
       </div>

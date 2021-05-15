@@ -2,26 +2,38 @@
 {% load static %}
 {% block content %}
 {{ block.super }}
-<div class="container mt-5" id="images">
-  {% for image in images %}
-  <div class="row">
+<!-- <div id="logo">
+  <img src="{% static 'images/logo.png' %}" alt="logo" style="width:8em; padding-bottom: 0 !important;">
+</div> -->
+<div class="container">
+  <div class="content" id="content">
     <div>
-      <div>
-        <div class="image"><a href="/image/{{image.id}}">
-          <img src="{{image.image.url}}" class="img-thumbnail" alt="Image" id="img"></a>
-        </div>
-      </div>
+      {% for image in first %}
+      <a href="/image/{{image.id}}">
+        <img src="{{image.image.url}}" class="image img-thumbnail" alt="Image"></a>
+      {% endfor %}
+    </div>
+    <div>
+      {% for image in second %}
+      <a href="/image/{{image.id}}">
+        <img src="{{image.image.url}}" class="image img-thumbnail" alt="Image"></a>
+      {% endfor %}
+    </div>
+    <div>
+      {% for image in third %}
+      <a href="/image/{{image.id}}">
+        <img src="{{image.image.url}}" class="image img-thumbnail" alt="Image"></a>
+      {% endfor %}
     </div>
   </div>
-  {% endfor %}
 </div>
-<div class="row">
+<!-- <div class="row" style="margin-top: 4em;">
   <div class="col-md-1"></div>
   <div class="col-md-5">
     {% if category %}
     <h3 style="text-align: center;">Categories</h3>
     {% for category in category %}
-    <a href="/category/{{category.id}}">{{category.name}}</a>
+    <a href="/category/{{category.id}}"><span class="badge rounded-pill bg-secondary">{{category.name}}</span></a>
     {% endfor %}
     {% endif %}
   </div>
@@ -29,10 +41,15 @@
     {% if location %}
     <h3 style="text-align: center;">Locations</h3>
     {% for location in location %}
-        <a href="/location/{{location.id}}">{{location.name}}</a>
+    <a href="/location/{{location.id}}"><span class="badge rounded-pill bg-secondary">{{location.name}}</span></a>
     {% endfor %}
     {% endif %}
   </div>
   <div class="col-md-1"></div>
+</div> -->
+<div class="footer">
+  <div id="logo">
+    <img src="{% static 'images/logo.png' %}" alt="logo" style="width:8em; padding-bottom: 0 !important;">
+  </div>
 </div>
 {% endblock %}
