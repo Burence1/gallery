@@ -19,8 +19,11 @@
             <div class="col-md-4">
               <p style="color: maroon;"><strong><i class="fa fa-location-arrow" aria-hidden="true"></i>{{image.location.name}}</strong></p>
             </div>
-            <div class="col-md-4">
-              <i class="fa fa-clipboard" aria-hidden="true"></i>
+            
+            <div class="col-md-4 image-share" onclick="copy()">
+              <a id="share">
+              <i class="fa fa-clipboard" aria-hidden="true"></i></a>
+              <input name="" id="copy-url" value="{{image.image.url}}" style="position:relative;left:15000px; height: 1px;">
             </div>
           </div>
           <div class="desc">

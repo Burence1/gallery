@@ -1,5 +1,5 @@
-$('.grid').masonry({
-  // options...
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
+function copy() {
+  $("#copy-url").select()
+  document.execCommand('copy');
+  alert("Share link has been copied to your clipboard!")
+}
