@@ -1,1 +1,1 @@
-web: gunicorn burence-gallery.wsgi --log-file -
+web: gunicorn galeria.wsgi --log-file -
