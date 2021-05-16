@@ -121,3 +121,9 @@ class LocationTest(TestCase):
   def test_location_instance(self):
     self.assertTrue(isinstance(self.nairobi, Location))
     self.assertTrue(isinstance(self.chicago, Location))
+
+  def test_save_location(self):
+    self.chicago.save_location()
+    self.nairobi.save_location()
+    location = Location.objects.all()
+    self.assertTrue(len(location),2) 
