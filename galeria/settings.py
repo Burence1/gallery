@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'galeria.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # development
-if config('MODE') == "dev":
+if config('MODE')=="dev":
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -104,8 +104,8 @@ if config('MODE') == "dev":
    }
 # production
 else:
-   DATABASES = {'default': dj_database_url.config(
-       default=config('DATABASE_URL'))}
+   DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
+
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
