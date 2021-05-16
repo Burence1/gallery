@@ -106,3 +106,9 @@ class CategoryTest(TestCase):
     self.fitness.delete_category()
     category=Category.objects.all()
     self.assertTrue(len(category)==1)
+
+  def test_update_category(self):
+    self.tech.save_category()
+    self.tech.update_category(self.tech.id,'technology')
+    update=Category.objects.get(name='technology')
+    self.assertTrue(update.name,'technology')
