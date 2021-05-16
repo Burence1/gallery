@@ -78,3 +78,12 @@ class ImagesTestClass(TestCase):
     self.image.save_image()
     images=Images.get_images()
     self.assertEqual(len(images), 1)
+
+class CategoryTest(TestCase):
+  def setUp(self):
+    self.tech = Category(name='tech')
+    self.food=Category(name='food')
+    self.fitness=Category(name='fitness')
+
+  def tearDown(self):
+    Category.objects.all().delete()
