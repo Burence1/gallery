@@ -130,3 +130,10 @@ class LocationTest(TestCase):
 
   def tearDown(self):
     Location.objects.all().delete()
+
+  def test_delete_location(self):
+    self.chicago.save_location()
+    self.nairobi.save_location()
+    self.nairobi.delete_location()
+    location=Location.objects.all()
+    self.assertTrue(len(location)==1)
