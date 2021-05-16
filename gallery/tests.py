@@ -63,3 +63,18 @@ class ImagesTestClass(TestCase):
     self.image.save_image()
     images = Images.filter_by_location("chuka")
     self.assertTrue(len(images) > 0)
+
+  def test_get_image_by_id(self):
+    self.location = Location(name='chuka')
+    self.location.save_location()
+    self.category = Category(name='tech')
+    self.category.save_category()
+    self.image=Images(id=1,image="image.png",name='laptop',description='new laptop',location=self.location,category=self.category)
+    self.image.save_image()
+    images = Images.get_image_by_id(self.image.id)
+    self.assertEqual(images.name, self.image.name)
+
+  def test_display_images(self):
+    self.image.save_image()
+    images=Images.get_images()
+    self.assertEqual(len(images), 1)
