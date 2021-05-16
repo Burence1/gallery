@@ -137,3 +137,9 @@ class LocationTest(TestCase):
     self.nairobi.delete_location()
     location=Location.objects.all()
     self.assertTrue(len(location)==1)
+
+  def test_update_location(self):
+    self.nairobi.save_location()
+    self.nairobi.update_location(self.nairobi.id,'Ngong')
+    update=Location.objects.get(name='Ngong')
+    self.assertEqual(update.name,'Ngong')
