@@ -127,3 +127,6 @@ class LocationTest(TestCase):
     self.nairobi.save_location()
     location = Location.objects.all()
     self.assertTrue(len(location),2) 
+
+  def tearDown(self):
+    Location.objects.all().delete()
