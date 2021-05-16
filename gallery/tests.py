@@ -112,3 +112,12 @@ class CategoryTest(TestCase):
     self.tech.update_category(self.tech.id,'technology')
     update=Category.objects.get(name='technology')
     self.assertTrue(update.name,'technology')
+
+class LocationTest(TestCase):
+  def setUp(self):
+    self.nairobi=Location(name='Nairobi')
+    self.chicago=Location(name='Chicago')
+
+  def test_location_instance(self):
+    self.assertTrue(isinstance(self.nairobi, Location))
+    self.assertTrue(isinstance(self.chicago, Location))
