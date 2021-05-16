@@ -4,7 +4,6 @@ from django.http import HttpResponse,Http404
 from .models import Location,Category,Images
 from django.core.exceptions import ObjectDoesNotExist
 import numpy as num
-import pyperclip
 
 # Create your views here.
 def index(request):
