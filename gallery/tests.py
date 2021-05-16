@@ -1,9 +1,6 @@
 from gallery.views import category
 from django.test import TestCase
 from .models import Location,Category,Images
-import datetime as dt
-import tempfile
-from django.test import override_settings
 
 
 # Create your tests here.
@@ -37,12 +34,11 @@ class ImagesTestClass(TestCase):
     del_images=Images.objects.all()
     self.assertEqual(len(del_images),0)
 
-  # @override_settings(MEDIA_ROOT=tempfile.gettempdir())
-  # def test_update_image(self):
-  #   self.image.save_image()
-  #   self.image.update_image(self.image.id,"new.png")
-  #   update=Images.objects.get(image="new.png")
-  #   self.assertEqual(update.image,"new.png")
+  def test_update_image(self):
+    self.image.save_image()
+    self.image.update_image(self.image.id,"new.png")
+    update=Images.objects.get(image="new.png")
+    self.assertEqual(update.image,"new.png")
 
   def test_search_category(self):
     self.location = Location(name='Nairobi')
@@ -52,20 +48,20 @@ class ImagesTestClass(TestCase):
     self.image=Images(id=1,image="image.png",name='laptop',description='new laptop',location=self.location,category=self.category)
     self.image.save_image()
     images=Images.search_image(self.category.id)
-    self.assertTrue(len(images) > 0)
+    self.assertTrue(len(images)==1)
 
   def test_filter_location(self):
-    self.location = Location(name='chuka')
+    self.location = Location(name='nairobi')
     self.location.save_location()
     self.category = Category(name='tech')
     self.category.save_category()
     self.image=Images(id=1,image="image.png",name='laptop',description='new laptop',location=self.location,category=self.category)
     self.image.save_image()
-    images = Images.filter_by_location("chuka")
+    images = Images.filter_by_location("nairobi")
     self.assertTrue(len(images) > 0)
 
   def test_get_image_by_id(self):
-    self.location = Location(name='chuka')
+    self.location = Location(name='nairobi')
     self.location.save_location()
     self.category = Category(name='tech')
     self.category.save_category()
