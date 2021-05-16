@@ -25,8 +25,42 @@
   </div>
 </div>
 <div class="footer">
-  <div id="logo">
-    <img src="{% static 'images/logo.png' %}" alt="logo" style="width:8em; padding-bottom: 0 !important;">
-  </div>
+  <footer class="page-footer font-small blue pt-4 bg-light" id="footer">
+  
+    <!-- Footer Links -->
+    <div class="container-fluid">
+  
+      <!-- Grid row -->
+      <div class="row">
+        <div class="col-md-4">
+          {% if category %}
+          <h3 style="text-align: center;">Categories</h3>
+          {% for category in category %}
+          <a href="/category/{{category.id}}"><span class="badge rounded-pill bg-secondary"><i
+                class="bi bi-pin-angle-fill"></i>{{category.name}}</span></a>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="col-md-4">
+          <div id="logo">
+            <img src="{% static 'images/logo.png' %}" alt="logo" style="width:8em; padding-bottom: 0 !important;">
+          </div>
+        </div>
+        <div class="col-md-4">
+          {% if location %}
+          <h3 style="text-align: center;">Locations</h3>
+          {% for location in location %}
+          <a href="/location/{{location.id}}"><span class="badge rounded-pill bg-secondary"><i class="fa fa-location-arrow"
+                aria-hidden="true"></i>{{location.name}}</span></a>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright: Burens Omondi
+    </div>
+    <!-- Copyright -->
+  </footer>
 </div>
 {% endblock %}
