@@ -28,7 +28,7 @@
       {% if category %}
       <h3 style="text-align: center;">Categories</h3>
       {% for category in category %}
-      <a href="/category/{{category.id}}"><span class="badge rounded-pill bg-secondary">{{category.name}}</span></a>
+      <a href="/category/{{category.id}}"><span class="badge rounded-pill bg-secondary"><i class="bi bi-pin-angle-fill"></i>{{category.name}}</span></a>
       {% endfor %}
       {% endif %}
     </div>
@@ -36,7 +36,7 @@
       {% if location %}
       <h3 style="text-align: center;">Locations</h3>
       {% for location in location %}
-      <a href="/location/{{location.id}}"><span class="badge rounded-pill bg-secondary">{{location.name}}</span></a>
+      <a href="/location/{{location.id}}"><span class="badge rounded-pill bg-secondary"><i class="fa fa-location-arrow" aria-hidden="true"></i>{{location.name}}</span></a>
       {% endfor %}
       {% endif %}
     </div>
