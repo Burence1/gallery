@@ -85,6 +85,11 @@ class CategoryTest(TestCase):
     self.food=Category(name='food')
     self.fitness=Category(name='fitness')
 
+  def test_category_instance(self):
+    self.assertTrue(isinstance(self.tech,Category))
+    self.assertTrue(isinstance(self.food,Category))
+    self.assertTrue(isinstance(self.fitness,Category))
+
   def tearDown(self):
     Category.objects.all().delete()
 
@@ -94,3 +99,10 @@ class CategoryTest(TestCase):
     self.tech.save_category()
     category=Category.objects.all()
     self.assertEqual(len(category),3)
+
+  def test_delete_category(self):
+    self.tech.save_category()
+    self.fitness.save_category()
+    self.fitness.delete_category()
+    category=Category.objects.all()
+    self.assertTrue(len(category)==1)
