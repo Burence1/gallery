@@ -87,3 +87,10 @@ class CategoryTest(TestCase):
 
   def tearDown(self):
     Category.objects.all().delete()
+
+  def test_save_category(self):
+    self.food.save_category()
+    self.fitness.save_category()
+    self.tech.save_category()
+    category=Category.objects.all()
+    self.assertEqual(len(category),3)
