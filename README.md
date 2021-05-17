@@ -39,7 +39,7 @@
 {Fortunately, the project has no known bugs}
 
 ## Technologies Used
-{The Pitching application has been developed using a variety of technologies}
+{Gallerie De Arte has been developed using a variety of technologies}
 
 * Python
 * Git

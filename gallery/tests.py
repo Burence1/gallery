@@ -1,4 +1,3 @@
-from gallery.views import category
 from django.test import TestCase
 from .models import Location,Category,Images
 
@@ -36,9 +35,9 @@ class ImagesTestClass(TestCase):
 
   def test_update_image(self):
     self.image.save_image()
-    self.image.update_image(self.image.id,"new.png")
-    update=Images.objects.get(image="new.png")
-    self.assertEqual(update.image,"new.png")
+    self.image.update_image(self.image.id,"image.png")
+    update=Images.objects.get(image="image.png")
+    self.assertEqual(update.image,"image.png")
 
   def test_search_category(self):
     self.location = Location(name='Nairobi')
