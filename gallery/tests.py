@@ -35,9 +35,9 @@ class ImagesTestClass(TestCase):
 
   def test_update_image(self):
     self.image.save_image()
-    self.image.update_image(self.image.id,"image.png")
-    update=Images.objects.get(image="image.png")
-    self.assertEqual(update.image,"image.png")
+    self.image.update_image_name(self.image.id,"name")
+    update=Images.objects.get(name="name")
+    self.assertEqual(update.name,"name")
 
   def test_search_category(self):
     self.location = Location(name='Nairobi')
